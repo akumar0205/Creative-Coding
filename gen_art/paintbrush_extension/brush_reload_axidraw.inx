@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>AxiDraw: Brush reload after distance</name>
+  <id>com.axidraw.brush_reload_after_distance</id>
+
+  <param name="max_len_mm" type="float" min="1" max="100000" gui-text="Reload after draw distance (mm):">250</param>
+  <param name="paint_x_mm" type="float" gui-text="Paint station X (mm):">10</param>
+  <param name="paint_y_mm" type="float" gui-text="Paint station Y (mm):">10</param>
+
+  <param name="do_dab" type="bool" gui-text="Do a visible dab at the paint station:">true</param>
+  <param name="dab_radius_mm" type="float" min="0" max="1000" gui-text="Dab radius (mm):">2</param>
+  <param name="dab_segments" type="int" min="8" max="256" gui-text="Dab segments:">24</param>
+  <param name="dab_loops" type="int" min="1" max="50" gui-text="Dab loops:">2</param>
+
+  <param name="keep_original" type="bool" gui-text="Keep original path(s):">false</param>
+  <param name="group_outputs" type="bool" gui-text="Group generated paths:">true</param>
+
+  <effect>
+    <object-type>path</object-type>
+    <effects-menu>
+      <submenu name="Modify Path"/>
+    </effects-menu>
+  </effect>
+
+  <script>
+    <command reldir="extensions" interpreter="python">brush_reload_axidraw.py</command>
+  </script>
+</inkscape-extension>
