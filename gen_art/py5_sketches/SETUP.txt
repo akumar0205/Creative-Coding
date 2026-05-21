@@ -1,0 +1,102 @@
+# Py5 Sketches - Quick Start Guide
+
+## Setup (One-time)
+
+### Prerequisites
+- Python 3.11 (Homebrew)
+- Java 17 (Temurin)
+
+```bash
+# Install Java 17 if not already installed
+brew install --cask temurin@17
+```
+
+## Daily Workflow
+
+### 1. Create a new sketch
+```bash
+./new_sketch.sh my_artwork
+```
+This creates a new folder `my_artwork/` with a template `my_artwork.py` file.
+
+### 2. Edit your sketch
+Open `my_artwork/my_artwork.py` and add your artwork code.
+
+### 3. Run your sketch
+```bash
+./run.sh my_artwork/my_artwork.py
+```
+
+### 4. View outputs
+- PNG file: `my_artwork/output.png`
+- SVG file: `my_artwork/output.svg`
+
+## Manual Setup (If needed)
+
+### Activate virtual environment
+```bash
+source .venv/bin/activate
+```
+
+### Set Java 17
+```bash
+export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+export PATH="$JAVA_HOME/bin:$PATH"
+```
+
+### Run a sketch manually
+```bash
+python masking/masking.py
+```
+
+## Example Sketches
+
+```bash
+# Run masking sketch
+./run.sh masking/masking.py
+
+# Run clipping sketch
+./run.sh clipping/py5_test.py
+```
+
+## Project Structure
+
+```
+py5_sketches/
+├── run.sh              # Run any sketch
+├── new_sketch.sh       # Create new sketch template
+├── SETUP.txt           # This file
+├── .venv/              # Python virtual environment
+│
+├── masking/            # Example sketch
+│   ├── masking.py
+│   ├── blue_circle_lines_full.png
+│   └── blue_circle_lines_only.svg
+│
+└── clipping/           # Example sketch
+    ├── py5_test.py
+    ├── circle_grid.png
+    └── circle_grid.svg
+```
+
+## Troubleshooting
+
+### "py5 is unable to start Java 17 Virtual Machine"
+```bash
+export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+export PATH="$JAVA_HOME/bin:$PATH"
+```
+
+### Virtual environment issues
+```bash
+# Recreate venv
+rm -rf .venv
+python3.11 -m venv .venv
+source .venv/bin/activate
+pip install py5 numpy
+```
+
+## Resources
+
+- py5 Documentation: https://py5coding.org/
+- Processing Reference: https://processing.org/reference
